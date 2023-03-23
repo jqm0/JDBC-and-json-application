@@ -1,5 +1,6 @@
 package fetchData;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class Main {
     
     private static final DatabaseManager databaseManager = new DatabaseManager();
     private static final APIManager apiManager = new APIManager(databaseManager);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         boolean quit = false;
         while (!quit) {
             printMenu();
@@ -23,7 +24,7 @@ public class Main {
                     backupDatabase();
                     break;
                 case "3":
-                    deleteTables();
+                    deleteTable();
                     break;
                 case "4":
                     fetchDataFromAPI();
@@ -72,8 +73,12 @@ public class Main {
         //databaseManager.backupDatabase(fileName);
     }
 
-    private static void deleteTables() {}
-
+    private static void deleteTable() throws SQLException {
+    	System.out.println(" Enter Table name to be deleted : ");
+    	String tableName = scanner.nextLine();
+    	DatabaseManager.deleteTable(tableName);
+    }
+    	
 
     private static void fetchDataFromAPI() {
         System.out.print("Please enter the name of the country: ");

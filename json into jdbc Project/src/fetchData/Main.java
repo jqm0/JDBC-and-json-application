@@ -3,7 +3,7 @@ package fetchData;
 import java.util.List;
 import java.util.Scanner;
 
-import storeData.DatabaseManager;
+import handleData.DatabaseManager;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class Main {
         databaseManager.initializeDatabase(dbName);
     }
 
-    private static void backupDatabase() {
+    private static void backupDatabase() { 
         System.out.print("Please enter the name of the backup file: ");
         String fileName = scanner.nextLine();
         //databaseManager.backupDatabase(fileName);

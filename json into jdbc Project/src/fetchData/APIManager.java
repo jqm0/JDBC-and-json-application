@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.google.gson.Gson;
 
-import storeData.DatabaseManager;
+import handleData.DatabaseManager;
 
 public class APIManager {
     private static final String API_URL = "http://universities.hipolabs.com/search?country=Oman";
